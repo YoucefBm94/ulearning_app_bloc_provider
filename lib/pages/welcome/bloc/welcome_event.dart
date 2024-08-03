@@ -1,0 +1,5 @@
+
+ class WelcomeEvent   {
+  const WelcomeEvent();
+}
+
