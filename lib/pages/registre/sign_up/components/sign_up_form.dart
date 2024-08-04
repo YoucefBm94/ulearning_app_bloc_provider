@@ -19,14 +19,12 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-  String? userName;
   String? email;
   String? password;
   String? rePassword;
   bool remember = false;
   final List<String?> errors = [];
 
-  @override
   late final SignUpController _signUpController;
   @override
   void initState() {
@@ -59,7 +57,6 @@ class _SignUpFormState extends State<SignUpForm> {
           key: _formKey,
           child: Column(
             children: [
-              buildUserName(context,state),
               SizedBox(height: getProportionateScreenHeight(30)),
               buildEmailFormField(context,state),
               SizedBox(height: getProportionateScreenHeight(30)),
@@ -73,8 +70,9 @@ class _SignUpFormState extends State<SignUpForm> {
                 press: () {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
-                    // if all are valid then go to success screen
-                    context.go("/CompleteProfileScreen");
+                    _signUpController.handleSignUp("email");
+
+                    context.go("/SignIn_Screen");
                   }
                 },
               ),
@@ -206,36 +204,4 @@ class _SignUpFormState extends State<SignUpForm> {
     );
   }
 
-  TextFormField buildUserName(BuildContext context, RegisterState state) {
-    return TextFormField(
-      keyboardType: TextInputType.name,
-      initialValue: state.userName,
-      onSaved: (newValue) {
-        context.read<RegisterBloc>().add(userNameEvent(newValue!));
-      },
-      onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: kEmailNullError);
-        } else if (emailValidatorRegExp.hasMatch(value)) {
-          removeError(error: kInvalidEmailError);
-        }
-        context.read<RegisterBloc>().add(userNameEvent(value));},
-      validator: (value) {
-        if (value!.isEmpty) {
-          addError(error: kEmailNullError);
-          return "";
-        } else if (!emailValidatorRegExp.hasMatch(value)) {
-          addError(error: kInvalidEmailError);
-          return "";
-        }
-        return null;
-      },
-      decoration: const InputDecoration(
-        labelText: "user Name",
-        hintText: "Enter your user Name",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        icon: Icon(Icons.account_circle),
-      ),
-    );
-  }
 }

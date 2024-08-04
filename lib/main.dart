@@ -17,7 +17,6 @@ import 'global.dart';
 
 void main() async {
 await Global.init();
-bool isFirstOpen = !Global.storageService.getDeviceFirstOpen( );
 
 runApp(const MyApp());
 

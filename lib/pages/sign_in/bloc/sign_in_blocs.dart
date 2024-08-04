@@ -14,7 +14,7 @@ class SignInBlocs extends Bloc<SignInEvent, SignInState> {
     // Handles email input events.
     on<EmailEvent>((event, emit) {
       if (kDebugMode) {
-        print("My email is  ${event.email }" );
+        print("My email is SignInBlocs  ${event.email }" );
       }
       // Emits a new state with the updated email.
       emit(state.copyWith(email: event.email));
@@ -22,6 +22,10 @@ class SignInBlocs extends Bloc<SignInEvent, SignInState> {
 
     // Handles password input events.
     on<PasswordEvent>((event, emit) {
+
+      if (kDebugMode) {
+        print("My password is SignInBlocs ${event.password }" );
+      }
       // Emits a new state with the updated password.
       emit(state.copyWith(password: event.password));
     });

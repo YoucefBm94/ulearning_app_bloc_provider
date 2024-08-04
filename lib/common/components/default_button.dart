@@ -9,6 +9,7 @@ class DefaultButton extends StatelessWidget {
     super.key,
     this.text,
     this.press,
+    void Function()? func,
   });
   final String? text;
   final Function? press;

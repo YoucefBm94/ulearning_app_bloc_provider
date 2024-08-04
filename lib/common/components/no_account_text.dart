@@ -21,7 +21,7 @@ class NoAccountText extends StatelessWidget {
         ),
         GestureDetector(
 
-    onTap: () => context.go("/SignUpScreen"),
+    onTap: () => context.go("/sign_up_screen"),
           child: Text(
             "Sign Up",
             style: TextStyle(

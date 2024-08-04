@@ -28,7 +28,7 @@ class StorageService{
     return await _prefs.setString(key, value);
   }
   bool getIsLogin(){
-    return _prefs.getBool(AppConstant.STORAGE_USER_TOKEN_KEY)==null?false:true;
+    return _prefs.getString(AppConstant.STORAGE_USER_TOKEN_KEY)==null?false:true;
   }
 
 }

@@ -1,3 +1,5 @@
+import 'package:flutter/physics.dart';
+
 abstract class SignInEvent {
   const SignInEvent();
 }
@@ -5,12 +7,13 @@ abstract class SignInEvent {
 class EmailEvent extends SignInEvent {
   final String email;
 
-  EmailEvent({required this.email});
+  EmailEvent( this.email);
 }
 
 
 class PasswordEvent extends SignInEvent {
   final String password;
 
-  PasswordEvent({required this.password});
+  PasswordEvent(this.password);
+
 }
