@@ -148,9 +148,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             } else {
               // Handle the last page action
               Global.storageService.setBool(AppConstant.STORAGE_DEVICE_OPEN_FIRST_TIME, true);
-              if (kDebugMode) {
-                print("the value is ${Global.storageService.getDeviceFirstOpen()}");
-              }
+
               context.go("/Sign_In");
             }
           },

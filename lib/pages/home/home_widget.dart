@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../constants.dart';
+
 AppBar buildAppBar() {
   return AppBar(
       automaticallyImplyLeading: false,
@@ -36,3 +38,23 @@ AppBar buildAppBar() {
     ),
   );
 }
+Widget homePageText(String text ,{Color? color=kPrimaryColor,int?Top}){
+
+  return Container(
+    margin: const EdgeInsets.all(20),
+    width: 100,
+    height: 100,
+    child:  Text(
+      text,
+      style: TextStyle(
+        color:color,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+  );
+
+}
+
+
+

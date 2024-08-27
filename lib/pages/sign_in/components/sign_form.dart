@@ -1,19 +1,13 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../common/components/default_button.dart';
-import '../../../common/components/form_error.dart';
-import '../../../common/value/constant.dart';
-import '../../../constants.dart';
-import '../../../global.dart';
 import '../../../helper/keyboard.dart';
 import '../../../size_config.dart';
 import '../bloc/sign_in_blocs.dart';
 import '../bloc/sign_in_events.dart';
 import '../bloc/signin_states.dart';
 import '../sigin_in_controller.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class SignForm extends StatefulWidget {
   const SignForm({super.key});
@@ -26,10 +20,6 @@ class _SignFormState extends State<SignForm> {
   final _formKey = GlobalKey<FormState>();
   String? email;
   String? password;
-
-  late final SignInController _signInController;
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -67,20 +57,22 @@ class _SignFormState extends State<SignForm> {
                   if (_formKey.currentState!.validate()) {
                     _formKey.currentState!.save();
                     KeyboardUtil.hideKeyboard(context);
-                    bool isSignedIn = await SignInController(context: context).handleSignIn("email");
+                    bool isSignedIn = await SignInController(context: context)
+                        .handleSignIn("email");
 
                     if (isSignedIn) {
                       context.go("/Application_Page");
                     } else {
                       // Optionally, display an error message or handle the failure case
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Sign-in failed. Please check your credentials.')),
+                        const SnackBar(
+                            content: Text(
+                                'Sign-in failed. Please check your credentials.')),
                       );
                     }
                   }
                 },
               ),
-
             ],
           ),
         );
@@ -88,20 +80,18 @@ class _SignFormState extends State<SignForm> {
     );
   }
 
-  TextFormField buildEmailFormField(void Function(String value)? func) {
+  TextFormField buildEmailFormField(Function(String value) onEmailChanged) {
     return TextFormField(
-      keyboardType: TextInputType.emailAddress,
-      onSaved: (newValue) => email = newValue,
-      onChanged: (value) => func!(value),
+      keyboardType: TextInputType.emailAddress, // Set keyboard type for email input
+      onChanged: onEmailChanged, // Trigger this function whenever the input changes
       decoration: const InputDecoration(
-        labelText: "Email",
-        hintText: "Enter your email",
-        floatingLabelBehavior: FloatingLabelBehavior.always,
-        suffixIcon: Icon(Icons.mail),
+        labelText: "Email", // Label above the input field
+        hintText: "Enter your email", // Placeholder text inside the field
+        floatingLabelBehavior: FloatingLabelBehavior.always, // Label always floats above
+        suffixIcon: Icon(Icons.mail), // Mail icon at the end of the input field
       ),
     );
   }
-
   TextFormField buildPasswordFormField(void Function(String value)? func) {
     return TextFormField(
       obscureText: true,

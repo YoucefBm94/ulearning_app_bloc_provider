@@ -1,4 +1,3 @@
-import 'package:flutter/physics.dart';
 
 abstract class SignInEvent {
   const SignInEvent();
