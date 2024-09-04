@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers:AppBlocProviders.allBlocProviders,
       child: ScreenUtilInit(
+        designSize: const Size(375, 812),
         builder: (context, child) => MaterialApp.router(
           debugShowCheckedModeBanner: false,
           routerConfig: router,

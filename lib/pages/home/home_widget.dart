@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 AppBar buildAppBar() {
   return AppBar(
@@ -54,6 +55,62 @@ Widget homePageText(String text ,{Color? color=kPrimaryColor,int?Top}){
     ),
   );
 
+}
+Widget searchView(){
+  return Row(
+    children: [
+      Container(
+        width: 280.w,
+        height: 40.h,
+        decoration: BoxDecoration(
+          color: kPrimaryLightColor,
+          borderRadius: BorderRadius.circular(20),
+          border: Border.all(
+            color: kSecondaryColor,
+          ),
+        ),
+        child: Row(
+          children: [
+            Container(
+            margin: EdgeInsets.only(left: 16),
+              width: 16.w,
+              height: 16.h,
+              child: Image.asset('assets/icons/search.png'),
+            ),
+            Container(
+              height: 16.h,
+              width: 16.w,
+              child: const TextField(
+                keyboardType: TextInputType.multiline,
+                decoration: InputDecoration(
+                  hintText: "Search your course",
+                  hintStyle: TextStyle(
+                    color: kSecondaryColor,
+                  ),
+                  enabledBorder: InputBorder.none,
+                  focusedBorder: InputBorder.none,
+                ),
+              ),
+
+            ),
+          ],
+
+        ),
+
+      ),
+      GestureDetector(
+        child: Container(
+          width: 40.w,
+          height: 40.h,
+          decoration: BoxDecoration(
+            color: kPrimaryColor2,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Image.asset("assets/icons/options.png"),
+        ),
+      ),
+    ],
+  );
 }
 
 

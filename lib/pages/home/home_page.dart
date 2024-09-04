@@ -22,6 +22,10 @@ class _HomepageState extends State<Homepage> {
             homePageText("hello"),
 
             homePageText("youcef" ),
+            const SizedBox(
+              height: 20,
+            ),
+            searchView(),
           ],
         ),
       ),
