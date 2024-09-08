@@ -1,5 +1,4 @@
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import 'package:ulearning_app_bloc_provider/pages/welcome/bloc/welcome_bloc.dart';
 import '../../common/value/constant.dart';
 import '../../global.dart';
-import '../../size_config.dart';
 import 'bloc/welcome_event.dart';
 import 'bloc/welcome_state.dart';
 

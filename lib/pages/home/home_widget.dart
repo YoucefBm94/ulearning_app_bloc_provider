@@ -7,7 +7,6 @@ import 'package:dots_indicator/dots_indicator.dart';
 
 import 'bloc/home_page_bloc.dart';
 
-
 AppBar buildAppBar() {
   return AppBar(
     automaticallyImplyLeading: false,
@@ -111,7 +110,7 @@ Widget searchView() {
   );
 }
 
-Widget slidersView(BuildContext context,HomePageState state) {
+Widget slidersView(BuildContext context, HomePageState state) {
   return Column(
     children: [
       Container(
@@ -124,18 +123,18 @@ Widget slidersView(BuildContext context,HomePageState state) {
             context.read<HomePageBloc>().add(HomePageDotsEvent(value));
           },
           children: [
-            _sliderContainer(path:"assets/icons/Art.png"),
-            _sliderContainer(path:"assets/icons/image_1.png"),
-            _sliderContainer(path:"assets/icons/image_2.png"),
-
-
+            _sliderContainer(path: "assets/icons/Art.png"),
+            _sliderContainer(path: "assets/icons/image_1.png"),
+            _sliderContainer(path: "assets/icons/image_2.png"),
           ],
         ),
       ),
       Container(
+        width: 325.w,
+        height: 160.h,
         child: DotsIndicator(
           dotsCount: 3,
-          position: state.index.toDouble(),
+          position: state.index,
           decorator: DotsDecorator(
             color: Colors.grey,
             activeColor: kPrimaryColor,
@@ -150,11 +149,12 @@ Widget slidersView(BuildContext context,HomePageState state) {
     ],
   );
 }
-Widget _sliderContainer({String path="assets/icons/Art.png"}) {
+
+Widget _sliderContainer({String path = "assets/icons/Art.png"}) {
   return Container(
     width: 325.w,
     height: 160.h,
-    decoration:  BoxDecoration(
+    decoration: BoxDecoration(
       borderRadius: BorderRadius.all(Radius.circular(20)),
       image: DecorationImage(
         fit: BoxFit.fill,
@@ -162,6 +162,38 @@ Widget _sliderContainer({String path="assets/icons/Art.png"}) {
       ),
     ),
   );
+}
+
+Widget menuView() {
+  return Column(
+    children: [
+      Container(
+        width: 325.w,
+        margin: EdgeInsets.only(top: 15.h),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
 
+          children: [
+            _reusableMenuText("choose your course"),
+            GestureDetector(child: _reusableMenuText("see all")),
+
+          ],
+        ),
+      )
+    ],
+  );
+}
+
+Widget _reusableMenuText(String txt) {
+  return Container(
+    child: Text(
+      txt,
+      style: TextStyle(
+        color: kPrimaryColor2,
+        fontSize: 16.sp,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+  );
 }
