@@ -198,6 +198,7 @@ Widget menuView() {
 Widget _reusableText(String txt,
     {Color? color = kPrimaryColor2, int fontSize = 16}) {
   return Container(
+
     child: Text(
       txt,
       style: TextStyle(
