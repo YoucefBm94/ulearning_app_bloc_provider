@@ -172,28 +172,55 @@ Widget menuView() {
         margin: EdgeInsets.only(top: 15.h),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
-
           children: [
-            _reusableMenuText("choose your course"),
-            GestureDetector(child: _reusableMenuText("see all")),
+            _reusableText("choose your course"),
+            GestureDetector(
+              child: _reusableText("see all", color: kTextColor),
+            ),
+          ],
+        ),
+      ),
+      Container(
+        margin: EdgeInsets.only(top: 20.w),
+        child: Row(
+          children: <Widget>[
+            _reusableMenuText("All"),
+            _reusableMenuText("popular",textColor: kTextColor,backRoundColor: kPrimaryLightColor),
+            _reusableMenuText("newest",textColor: kTextColor,backRoundColor: kPrimaryLightColor),
 
           ],
         ),
-      )
+      ),
     ],
   );
 }
 
-Widget _reusableMenuText(String txt) {
+Widget _reusableText(String txt,
+    {Color? color = kPrimaryColor2, int fontSize = 16}) {
   return Container(
     child: Text(
       txt,
       style: TextStyle(
         color: kPrimaryColor2,
-        fontSize: 16.sp,
+        fontSize: fontSize.sp,
         fontWeight: FontWeight.bold,
       ),
     ),
+  );
+}
+
+Widget _reusableMenuText(String menuText,{Color? textColor = kTextColorblack,Color backRoundColor=kPrimaryColor2}) {
+
+  return Container(
+    margin: EdgeInsets.only(right: 20.w),
+    decoration: BoxDecoration(
+      color: backRoundColor,
+      borderRadius: BorderRadius.circular(7.w),
+      border: Border.all(
+        color: backRoundColor,
+      ),
+    ),
+    padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 5.h, bottom: 5.h),
+    child: _reusableText(menuText, color: textColor),
   );
 }

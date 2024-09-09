@@ -31,9 +31,14 @@ class _HomepageState extends State<Homepage> {
                 ),
                 searchView(),
                 slidersView(context,state ),
+                const SizedBox(
+                  height: 20,
+                ),
+                menuView(),
               ],
             ),
           );
+
         },
       ),
     );
