@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ulearning_app_bloc_provider/pages/home/bloc/home_page_bloc.dart';
+import '../../constants.dart';
 import 'home_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -45,17 +46,15 @@ class _HomepageState extends State<Homepage> {
                   padding:
                       EdgeInsets.symmetric(vertical: 18.h, horizontal: 0.w),
                   sliver: SliverGrid(
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 15,
-                        crossAxisSpacing: 15),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 15,
+                            crossAxisSpacing: 15),
                     delegate: SliverChildBuilderDelegate(childCount: 4,
                         (BuildContext context, int index) {
-                      return Container(
-                        margin: EdgeInsets.only(right: 10.w),
-                        width: 150.w,
-                        height: 150.h,
-                        color: Colors.red,
+                      return GestureDetector(
+                        child: courseGrid(),
                       );
                     }),
                   ),
