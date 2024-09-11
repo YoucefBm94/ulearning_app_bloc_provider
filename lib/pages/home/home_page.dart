@@ -5,6 +5,7 @@ import 'package:ulearning_app_bloc_provider/pages/home/bloc/home_page_bloc.dart'
 import '../../constants.dart';
 import 'home_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -22,12 +23,9 @@ class _HomepageState extends State<Homepage> {
       body: BlocBuilder<HomePageBloc, HomePageState>(
         builder: (context, state) {
           return Container(
-            margin: const EdgeInsets.all(20),
+            margin: EdgeInsets.symmetric(horizontal: 25.w,vertical: 0),
             child: CustomScrollView(
               slivers: [
-                SliverToBoxAdapter(
-                  child: homePageText("hello"),
-                ),
                 SliverToBoxAdapter(
                   child: homePageText("youcef"),
                 ),
@@ -38,7 +36,6 @@ class _HomepageState extends State<Homepage> {
                 SliverToBoxAdapter(
                   child: slidersView(context, state),
                 ),
-                SliverPadding(padding: EdgeInsets.only(top: 20.h)),
                 SliverToBoxAdapter(
                   child: menuView(),
                 ),
@@ -50,7 +47,8 @@ class _HomepageState extends State<Homepage> {
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             mainAxisSpacing: 15,
-                            crossAxisSpacing: 15),
+                            crossAxisSpacing: 15,
+                            childAspectRatio: 1.6),
                     delegate: SliverChildBuilderDelegate(childCount: 4,
                         (BuildContext context, int index) {
                       return GestureDetector(

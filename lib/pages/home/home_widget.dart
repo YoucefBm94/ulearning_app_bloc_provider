@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../common/value/colors.dart';
 import '../../constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:dots_indicator/dots_indicator.dart';
@@ -9,24 +10,25 @@ import 'bloc/home_page_bloc.dart';
 
 AppBar buildAppBar() {
   return AppBar(
-    automaticallyImplyLeading: false,
+    automaticallyImplyLeading: false, // This removes the back arrow
+
+
+
     title: Container(
+      margin: EdgeInsets.only(left: 7.w, right: 7.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           SizedBox(
-            width: 20,
-            height: 20,
+            width: 15.w,
+            height: 12.h,
             child: Image.asset('assets/icons/menu.png'),
           ),
           GestureDetector(
-            onTap: () {
-              // Define your onTap action here
-            },
             child: Container(
-              width: 20,
-              height: 20,
+              width: 40.w,
+              height: 40.h,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/icons/person.png'),
@@ -40,18 +42,15 @@ AppBar buildAppBar() {
   );
 }
 
-Widget homePageText(String text, {Color? color = kPrimaryColor, int? Top}) {
+//reusable big text widget
+Widget homePageText(String text,
+    {Color color = AppColors.primaryText, int top = 20}) {
   return Container(
-    margin: const EdgeInsets.all(20),
-    width: 100,
-    height: 100,
+    margin: EdgeInsets.only(top: top.h),
     child: Text(
       text,
-      style: TextStyle(
-        color: color,
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
+      style:
+          TextStyle(color: color, fontSize: 24.sp, fontWeight: FontWeight.bold),
     ),
   );
 }
@@ -63,10 +62,10 @@ Widget searchView() {
         width: 280.w,
         height: 40.h,
         decoration: BoxDecoration(
-          color: kPrimaryLightColor,
+          color: AppColors.primaryElementText,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: kSecondaryColor,
+            color: AppColors.primarySecondaryElementText,
           ),
         ),
         child: Row(
@@ -78,15 +77,17 @@ Widget searchView() {
               child: Image.asset('assets/icons/search.png'),
             ),
             Container(
-              height: 16.h,
-              width: 16.w,
+              margin: EdgeInsets.only(left: 10.w),
+              height: 25.h,
+              width: 200.w,
               child: const TextField(
                 keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(
                   hintText: "Search your course",
                   hintStyle: TextStyle(
-                    color: kSecondaryColor,
+                    color: AppColors.primaryElementBg,
                   ),
+                  label: Text("Search your course"),
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
                 ),
@@ -130,16 +131,15 @@ Widget slidersView(BuildContext context, HomePageState state) {
         ),
       ),
       Container(
-        width: 325.w,
-        height: 160.h,
+        margin: EdgeInsets.only(top: 10.h),
         child: DotsIndicator(
           dotsCount: 3,
           position: state.index,
           decorator: DotsDecorator(
-            color: Colors.grey,
-            activeColor: kPrimaryColor,
-            size: const Size.square(9.0),
-            activeSize: const Size(18.0, 9.0),
+            color: AppColors.primaryThirdElementText,
+            activeColor: AppColors.primaryElement,
+            size: const Size.square(5.0),
+            activeSize: const Size(17.0, 5.0),
             activeShape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5.0),
             ),
@@ -155,7 +155,7 @@ Widget _sliderContainer({String path = "assets/icons/Art.png"}) {
     width: 325.w,
     height: 160.h,
     decoration: BoxDecoration(
-      borderRadius: BorderRadius.all(Radius.circular(20)),
+      borderRadius: const BorderRadius.all(Radius.circular(20)),
       image: DecorationImage(
         fit: BoxFit.fill,
         image: AssetImage(path),
@@ -168,64 +168,70 @@ Widget menuView() {
   return Column(
     children: [
       Container(
-        width: 325.w,
-        margin: EdgeInsets.only(top: 15.h),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            _reusableText("choose your course"),
-            GestureDetector(
-              child: _reusableText("see all", color: kTextColor),
-            ),
-          ],
-        ),
-      ),
+          width: 325.w,
+          margin: EdgeInsets.only(top: 15.h),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              _reusableText("Choose your course"),
+              GestureDetector(
+                  child: _reusableText("See all",
+                      color: AppColors.primaryThirdElementText, fontSize: 10)),
+            ],
+          )),
       Container(
         margin: EdgeInsets.only(top: 20.w),
         child: Row(
-          children: <Widget>[
+          children: [
             _reusableMenuText("All"),
-            _reusableMenuText("popular",textColor: kTextColor,backRoundColor: kPrimaryLightColor),
-            _reusableMenuText("newest",textColor: kTextColor,backRoundColor: kPrimaryLightColor),
-
+            _reusableMenuText("Popular",
+                textColor: AppColors.primaryThirdElementText,
+                backGroundColor: AppColors.primaryBackground),
+            _reusableMenuText("Newest",
+                textColor: AppColors.primaryThirdElementText,
+                backGroundColor: AppColors.primaryBackground),
           ],
         ),
-      ),
+      )
     ],
   );
 }
 
 Widget _reusableText(String txt,
-    {Color? color = kPrimaryColor2, int fontSize = 16}) {
+    {Color? color = AppColors.primarySecondaryElementText,
+    int fontSize = 16,
+    FontWeight fontWeight = FontWeight.normal}) {
   return Text(
     txt,
     style: TextStyle(
-      color: kPrimaryColor2,
+      color: color,
       fontSize: fontSize.sp,
       fontWeight: FontWeight.bold,
     ),
   );
 }
 
-Widget _reusableMenuText(String menuText,{Color? textColor = kTextColorblack,Color backRoundColor=kPrimaryColor2}) {
-
+//for the mnue buttons, reusbale text
+//for the mnue buttons, reusbale text
+Widget _reusableMenuText(String menuText,
+    {Color textColor = AppColors.primaryElementText,
+    Color backGroundColor = AppColors.primaryElement}) {
   return Container(
     margin: EdgeInsets.only(right: 20.w),
     decoration: BoxDecoration(
-      color: backRoundColor,
-      borderRadius: BorderRadius.circular(7.w),
-      border: Border.all(
-        color: backRoundColor,
-      ),
-    ),
+        color: backGroundColor,
+        borderRadius: BorderRadius.circular(7.w),
+        border: Border.all(color: backGroundColor)),
     padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 5.h, bottom: 5.h),
-    child: _reusableText(menuText, color: textColor),
+    child: _reusableText(menuText,
+        color: textColor, fontWeight: FontWeight.normal, fontSize: 11),
   );
 }
-Widget courseGrid(){
-  return Container(
-    padding:  EdgeInsets.all(12.w),
 
+Widget courseGrid() {
+  return Container(
+    padding: EdgeInsets.all(12.w),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15.w),
       image: const DecorationImage(
@@ -233,7 +239,6 @@ Widget courseGrid(){
         image: AssetImage("assets/icons/image_1.png"),
       ),
     ),
-
     child: Column(
       mainAxisAlignment: MainAxisAlignment.end,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -245,10 +250,13 @@ Widget courseGrid(){
           textAlign: TextAlign.left,
           softWrap: false,
           style: TextStyle(
-            color: kPrimaryLightColor,
-            fontSize: 16.sp,
+            color: AppColors.primaryElementText,
+            fontSize: 11.sp,
             fontWeight: FontWeight.bold,
           ),
+        ),
+        SizedBox(
+          height: 5.h,
         ),
         Text(
           "Flutter Best course",
@@ -257,8 +265,8 @@ Widget courseGrid(){
           textAlign: TextAlign.left,
           softWrap: false,
           style: TextStyle(
-            color: kSecondaryColor,
-            fontSize: 11.sp,
+            color: AppColors.primaryFourthElementText,
+            fontSize: 8.sp,
             fontWeight: FontWeight.normal,
           ),
         ),

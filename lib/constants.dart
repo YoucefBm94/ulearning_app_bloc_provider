@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ulearning_app_bloc_provider/size_config.dart';
 
-const kPrimaryColor = Color(0xFFFF7643);
+const kPrimaryColor = Color(0xFF404040);
 const kPrimaryColor2 = Color(0xFF4372FF);
 
 const kPrimaryLightColor = Color(0xFFFFECDF);

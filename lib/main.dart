@@ -5,6 +5,7 @@ import 'package:ulearning_app_bloc_provider/appblocproviders.dart';
 
 import 'package:ulearning_app_bloc_provider/router.dart';
 import 'package:ulearning_app_bloc_provider/size_config.dart';
+import 'common/value/colors.dart';
 import 'global.dart';
 
 
@@ -32,9 +33,16 @@ class MyApp extends StatelessWidget {
         designSize: const Size(375, 812),
         builder: (context, child) => MaterialApp.router(
           debugShowCheckedModeBanner: false,
+
           routerConfig: router,
+          theme: ThemeData(appBarTheme: const AppBarTheme(
+              iconTheme: IconThemeData(
+                color: AppColors.primaryText,
+              ),
+              elevation: 0,
+              backgroundColor: Colors.white)),),
         ),
-      ),
+
 
     );
   }
