@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../profile/profile_page.dart';
 import '../home/home_page.dart';
 
 Widget buildApplicationPage(int index) {
   List<Widget> _widget =[
     Homepage(),
     Center(child: Text("Search")),
-    Center(child: Text("Profile")),
+    ProfileScreen(),
     Center(child: Text("chat")),
     Center(child: Text("Course")),
 

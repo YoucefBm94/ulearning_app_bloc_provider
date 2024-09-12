@@ -5,6 +5,7 @@ import 'package:ulearning_app_bloc_provider/pages/home/home_page.dart';
 import 'package:ulearning_app_bloc_provider/pages/registre/sign_up/sign_up_screen.dart';
 import 'package:ulearning_app_bloc_provider/pages/sign_in/sign_in_screen.dart';
 import 'package:ulearning_app_bloc_provider/pages/welcome/welcome_screen.dart';
+import 'package:ulearning_app_bloc_provider/profile/profile_page.dart';
 
 
 
@@ -37,6 +38,10 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: "sign_up_screen",
           builder: (context, state) =>  const SignUpScreen(),
+        ),
+        GoRoute(
+          path: "profile_screen",
+          builder: (context, state) =>  const ProfileScreen(),
         ),
       ],
     ),

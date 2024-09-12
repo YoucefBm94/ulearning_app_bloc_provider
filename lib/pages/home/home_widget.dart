@@ -16,19 +16,20 @@ AppBar buildAppBar() {
 
     title: Container(
       margin: EdgeInsets.only(left: 7.w, right: 7.w),
+
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.max,
+        mainAxisSize:MainAxisSize.max,
         children: <Widget>[
           SizedBox(
-            width: 15.w,
+            width: 25.w,
             height: 12.h,
             child: Image.asset('assets/icons/menu.png'),
           ),
           GestureDetector(
             child: Container(
-              width: 40.w,
-              height: 40.h,
+              width: 30.w,
+              height: 30.h,
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/icons/person.png'),
@@ -71,7 +72,7 @@ Widget searchView() {
         child: Row(
           children: [
             Container(
-              margin: EdgeInsets.only(left: 16),
+              margin: EdgeInsets.only(left: 16.w),
               width: 16.w,
               height: 16.h,
               child: Image.asset('assets/icons/search.png'),
@@ -85,9 +86,8 @@ Widget searchView() {
                 decoration: InputDecoration(
                   hintText: "Search your course",
                   hintStyle: TextStyle(
-                    color: AppColors.primaryElementBg,
+                    color: AppColors.primarySecondaryElementText,
                   ),
-                  label: Text("Search your course"),
                   enabledBorder: InputBorder.none,
                   focusedBorder: InputBorder.none,
                 ),
@@ -101,7 +101,7 @@ Widget searchView() {
           width: 40.w,
           height: 40.h,
           decoration: BoxDecoration(
-            color: kPrimaryColor2,
+            color:AppColors.primaryElement,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Image.asset("assets/icons/options.png"),
