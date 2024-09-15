@@ -21,27 +21,16 @@ class ProfileScreen extends StatelessWidget {
                 height: 50.h,
               ),
               profileIconandEdit(),
-               SizedBox(
+              SizedBox(
                 height: 20.h,
               ),
               Padding(
-                padding:  EdgeInsets.only(left: 25.w),
-                child: buildlistview(),
+                padding: EdgeInsets.only(left: 25.w),
+                child: buildlistview(context),
               ),
-
-
-
-
-
             ],
           ),
         ),
-
-
-
-
-
-
       ),
     );
   }

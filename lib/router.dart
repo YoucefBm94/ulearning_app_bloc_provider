@@ -6,15 +6,13 @@ import 'package:ulearning_app_bloc_provider/pages/registre/sign_up/sign_up_scree
 import 'package:ulearning_app_bloc_provider/pages/sign_in/sign_in_screen.dart';
 import 'package:ulearning_app_bloc_provider/pages/welcome/welcome_screen.dart';
 import 'package:ulearning_app_bloc_provider/profile/profile_page.dart';
+import 'package:ulearning_app_bloc_provider/profile/settings/settings_page.dart';
 
-
-
-bool isLogin= Global.storageService.getIsLogin() ;
+bool isLogin = Global.storageService.getIsLogin();
 
 final GoRouter router = GoRouter(
-  initialLocation: isLogin? "/Application_Page" : "/",
+  initialLocation: isLogin ? "/Application_Page" : "/",
   routes: [
-
     GoRoute(
       path: "/",
       builder: (context, state) => const SignInScreen(),
@@ -37,12 +35,15 @@ final GoRouter router = GoRouter(
         ),
         GoRoute(
           path: "sign_up_screen",
-          builder: (context, state) =>  const SignUpScreen(),
+          builder: (context, state) => const SignUpScreen(),
         ),
         GoRoute(
           path: "profile_screen",
-          builder: (context, state) =>  const ProfileScreen(),
+          builder: (context, state) => const ProfileScreen(),
         ),
+        GoRoute(
+            path: "settings_page",
+            builder: (context, state) => const SettingsPage()),
       ],
     ),
   ],

@@ -33,4 +33,8 @@ class StorageService{
     return _prefs.getString(AppConstant.STORAGE_USER_TOKEN_KEY)==null?false:true;
   }
 
+  Future<bool> remove(String key) async{
+    return await _prefs.remove(key);
+  }
+
 }

@@ -4,6 +4,7 @@ import 'package:ulearning_app_bloc_provider/pages/registre/bloc/registre_bloc.da
 import 'package:ulearning_app_bloc_provider/pages/sign_in/bloc/sign_in_blocs.dart';
 import 'package:ulearning_app_bloc_provider/pages/welcome/bloc/welcome_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ulearning_app_bloc_provider/profile/settings/bloc/settings_bloc.dart';
 class AppBlocProviders {
   static get allBlocProviders => [
         // Add all the providers here
@@ -13,6 +14,7 @@ class AppBlocProviders {
         BlocProvider(create: (context) => SignInBlocs()),
     BlocProvider(create: (context) => RegisterBloc()),
     BlocProvider(create: (context) => HomePageBloc()),
+    BlocProvider(create: (context) => SettingsBloc()),
 
 
 

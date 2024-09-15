@@ -6,11 +6,11 @@ import '../home/home_page.dart';
 
 Widget buildApplicationPage(int index) {
   List<Widget> _widget =[
-    Homepage(),
+    const Homepage(),
     Center(child: Text("Search")),
-    ProfileScreen(),
+    Center(child: Text("Search")),
     Center(child: Text("chat")),
-    Center(child: Text("Course")),
+    const ProfileScreen(),
 
   ];
   return _widget[index];

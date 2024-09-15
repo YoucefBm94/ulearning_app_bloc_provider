@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 AppBar buildAppBar() {
   return AppBar(
@@ -61,37 +62,40 @@ var imagesInfo = <String, String>{
   "Love": "heart(1).png",
   "Reminders": "cube.png"
 };
-Widget buildlistview() {
+Widget buildlistview(BuildContext context) {
   return Column(
     children: <Widget>[
       ...List.generate(
         imagesInfo.length,
         (index) => GestureDetector(
+            onTap: () => context.go("/settings_page"),
             child: Container(
               margin: EdgeInsets.only(bottom: 15.h),
               child: Row(
-                        children: [
-              Container(
-                width: 40.w,
-                height: 40.h,
-                decoration: BoxDecoration(
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Image(image: AssetImage("assets/icons/${imagesInfo.values.elementAt(index)}")),
+                children: [
+                  Container(
+                    width: 40.w,
+                    height: 40.h,
+                    decoration: BoxDecoration(
+                      color: Colors.blueAccent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Image(
+                        image: AssetImage(
+                            "assets/icons/${imagesInfo.values.elementAt(index)}")),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  Text(
+                    imagesInfo.keys.elementAt(index),
+                    style: TextStyle(
+                        fontSize: 20.sp,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
               ),
-              SizedBox(
-                width: 10.w,
-              ),
-              Text(
-                '${imagesInfo.keys.elementAt(index)}',
-                style: TextStyle(
-                    fontSize: 20.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500),
-              ),
-                        ],
-                      ),
             )),
       ),
     ],
