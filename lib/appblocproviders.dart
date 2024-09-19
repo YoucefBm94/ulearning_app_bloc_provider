@@ -1,3 +1,4 @@
+import 'package:ulearning_app_bloc_provider/pages/course/bloc/course_blocs.dart';
 import 'package:ulearning_app_bloc_provider/pages/home/bloc/home_page_bloc.dart';
 import 'package:ulearning_app_bloc_provider/pages/home/home_page.dart';
 import 'package:ulearning_app_bloc_provider/pages/registre/bloc/registre_bloc.dart';
@@ -15,10 +16,12 @@ class AppBlocProviders {
     BlocProvider(create: (context) => RegisterBloc()),
     BlocProvider(create: (context) => HomePageBloc()),
     BlocProvider(create: (context) => SettingsBloc()),
+    BlocProvider(create: (context) => CourseBloc()),
 
 
 
 
 
-    ];
+
+  ];
 }

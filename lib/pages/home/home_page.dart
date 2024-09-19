@@ -6,6 +6,7 @@ import '../../constants.dart';
 import 'home_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -52,6 +53,7 @@ class _HomepageState extends State<Homepage> {
                     delegate: SliverChildBuilderDelegate(childCount: 4,
                         (BuildContext context, int index) {
                       return GestureDetector(
+                        onTap: ()=>context.go("/course_detail"),
                         child: courseGrid(),
                       );
                     }),

@@ -26,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.only(left: 25.w),
-                child: buildlistview(context),
+                child: buildListview(context),
               ),
             ],
           ),

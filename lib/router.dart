@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:ulearning_app_bloc_provider/global.dart';
-import 'package:ulearning_app_bloc_provider/pages/application_page/application_page.dart';
+import 'package:ulearning_app_bloc_provider/pages/application/application_page.dart';
+import 'package:ulearning_app_bloc_provider/pages/course/course_detail.dart';
 import 'package:ulearning_app_bloc_provider/pages/home/home_page.dart';
 import 'package:ulearning_app_bloc_provider/pages/registre/sign_up/sign_up_screen.dart';
 import 'package:ulearning_app_bloc_provider/pages/sign_in/sign_in_screen.dart';
@@ -44,6 +45,9 @@ final GoRouter router = GoRouter(
         GoRoute(
             path: "settings_page",
             builder: (context, state) => const SettingsPage()),
+        GoRoute(
+            path: "course_detail",
+            builder: (context, state) => const CourseDetail()),
       ],
     ),
   ],
