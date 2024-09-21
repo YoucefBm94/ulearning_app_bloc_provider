@@ -5,7 +5,6 @@ import '../../../../common/components/default_button.dart';
 import '../../../../common/components/form_error.dart';
 import '../../../../constants.dart';
 import '../../../../size_config.dart';
-import '../../../sign_in/bloc/signin_states.dart';
 import '../../SignUpController.dart';
 import '../../bloc/registre_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

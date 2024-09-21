@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -50,7 +49,7 @@ Widget profileIconandEdit() {
     child: Image(
         height: 25.h,
         width: 25.w,
-        image: AssetImage('assets/icons/edit_3.png')),
+        image: const AssetImage('assets/icons/edit_3.png')),
   );
 }
 

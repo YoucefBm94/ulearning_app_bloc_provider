@@ -42,7 +42,7 @@ Widget buildThirdPartyLogin(BuildContext context) {
 Widget _reusableIcons(String iconName) {
   return GestureDetector(
     onTap: () {},
-    child: Container(
+    child: SizedBox(
       width: 40.w,
       height: 40.w,
       child: Image.asset(

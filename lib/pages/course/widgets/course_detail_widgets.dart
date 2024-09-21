@@ -108,7 +108,7 @@ Widget courseSummaryView(BuildContext context) {
       ...List.generate(
         imagesInfo.length,
         (index) => GestureDetector(
-          onTap: () => null,
+          onTap: () {},
           child: Container(
             margin: EdgeInsets.only(top: 15.h),
             child: Row(
@@ -205,7 +205,7 @@ Widget courseLessonList() {
                     child: Image(
                       height: 24.h,
                       width: 24.h,
-                      image: AssetImage("assets/icons/arrow_right.png"),
+                      image: const AssetImage("assets/icons/arrow_right.png"),
                     ),
                   )
                 ],
