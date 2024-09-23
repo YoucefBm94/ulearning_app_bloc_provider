@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'application_widgets.dart';
@@ -33,7 +32,7 @@ class _ApplicationPageState extends State<ApplicationPage> {
                     color: Colors.grey.withOpacity(0.9),
                     spreadRadius: 1,
                     blurRadius: 1,
-                    offset: Offset(0, 1), // changes position of shadow
+                    offset: const Offset(0, 1), // changes position of shadow
                   ),
                 ],
               )   ,

@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app_bloc_provider/common/value/colors.dart';
 import 'package:ulearning_app_bloc_provider/pages/common_widgets.dart';
 import 'package:ulearning_app_bloc_provider/pages/course/widgets/course_detail_widgets.dart';
 

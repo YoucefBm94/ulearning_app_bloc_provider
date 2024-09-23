@@ -1,19 +1,18 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../profile/profile_page.dart';
 import '../home/home_page.dart';
 
 Widget buildApplicationPage(int index) {
-  List<Widget> _widget =[
+  List<Widget> widget =[
     const Homepage(),
-    Center(child: Text("Search")),
-    Center(child: Text("Search")),
-    Center(child: Text("chat")),
+    const Center(child: Text("Search")),
+    const Center(child: Text("Search")),
+    const Center(child: Text("chat")),
     const ProfileScreen(),
 
   ];
-  return _widget[index];
+  return widget[index];
 
 }
 var bottomTabs=[
